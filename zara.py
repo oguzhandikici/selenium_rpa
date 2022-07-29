@@ -23,7 +23,7 @@ def check_availability_of_cloth_size(driver, url, button_id, message):
     is_size_available = False if 'size-out-of-stock' == size_button.get_attribute('data-qa-action') else True
 
     if is_size_available:
-        send_telegram_message(f'{message}: {babaanne_url}', '-596278799')
+        send_telegram_message(f'{message}: {url}', '-596278799')
     return send_telegram_message
 
 
