@@ -6,7 +6,7 @@ import requests
 
 
 def send_telegram_message(message, chat_id):
-    f = open('../bot_token.txt', 'r')
+    f = open('./bot_token.txt', 'r')
     token = f.read()
     f.close()
     
@@ -45,7 +45,7 @@ options.add_argument('--disable-gpu')
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
 options.add_argument(f'user-agent={user_agent}')
 
-driver = webdriver.Chrome('../chromedriver.exe', options=options)
+driver = webdriver.Chrome('chromedriver.exe', options=options)
 
 url = "https://www.massimodutti.com/tr/kapusonlu-uzun-parka-l06727620?colorId=526"
 price_span_xpath = "/html/body/app-root/layout-default/div[2]/product-layout/product-page-layout/div/div/div[2]/product-page-product-details/div/div[1]/div[2]/product-prices/div/formatted-price/div/div/span"

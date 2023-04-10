@@ -6,7 +6,7 @@ import requests
 
 
 def send_telegram_message(message, chat_id):
-    f = open('../bot_token.txt', 'r')
+    f = open('./bot_token.txt', 'r')
     token = f.read()
     f.close()
 
@@ -35,7 +35,7 @@ options.add_argument('--disable-gpu')
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
 options.add_argument(f'user-agent={user_agent}')
 
-driver = webdriver.Chrome('../chromedriver.exe', options=options)
+driver = webdriver.Chrome('chromedriver.exe', options=options)
 # driver.save_screenshot('./babaanne_tshirt.png')
 
 # PREMIUM SLIM FIT JEAN DONUK MAVI
