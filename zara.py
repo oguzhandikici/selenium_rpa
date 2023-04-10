@@ -6,10 +6,10 @@ import requests
 
 
 def send_telegram_message(message, chat_id):
-    f = open('./bot_token.txt','r')
+    f = open('../bot_token.txt', 'r')
     token = f.read()
     f.close()
-    
+
     get_url = f'https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={message}'
 
     result = requests.get(get_url)
@@ -29,32 +29,46 @@ def check_availability_of_cloth_size(driver, url, button_id, message):
 
 options = Options()
 options.add_argument("--window-size=1920,1080")
-options.add_argument('--headless')
+options.add_argument('--headless=new')
 options.add_argument('--disable-gpu')
 
-user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
+user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
 options.add_argument(f'user-agent={user_agent}')
 
-driver = webdriver.Chrome('./chromedriver.exe', options=options)
+driver = webdriver.Chrome('../chromedriver.exe', options=options)
+# driver.save_screenshot('./babaanne_tshirt.png')
 
-# TAKIM BLAZER
-url = "https://www.zara.com/tr/tr/pamuklu-keten-blazer-takim-p05631150.html?v1=200488403&v2=2111004"
-button_id = "product-detail-size-selector-product-detail-product-size-selector-200488403-item-0"
-message = 'Blazer geldi'
+# PREMIUM SLIM FIT JEAN DONUK MAVI
+url = "https://www.zara.com/tr/tr/premium-slim-fit-jean-p05072300.html?v1=177662109"
+button_id = "product-size-selector-177662109-item-3"
+message = 'DONUK MAVI KOT GELDI US34 BEDEN'
 check_availability_of_cloth_size(driver, url, button_id, message)
 
-# TAKIM PANTOLON
-url = "https://www.zara.com/tr/tr/pamuklu-keten-takim-pantolonu-p05638150.html?v1=200488404&v2=2111004"
-button_id = "product-detail-size-selector-product-detail-product-size-selector-200488404-item-0"
-message = 'Takım pantolon geldi'
+# PREMIUM SLIM FIT JEAN SIYAH
+url = "https://www.zara.com/tr/tr/premium-slim-fit-jean-p05072300.html?v1=177662108"
+button_id = "product-size-selector-177662108-item-3"
+message = 'SIYAH KOT GELDI US34 BEDEN'
 check_availability_of_cloth_size(driver, url, button_id, message)
 
-# BABAANNE TSHIRT
-url = "https://www.zara.com/tr/tr/pamuklu-premium-t-shirt-p04174015.html?v1=172577525&v2=2137904"
-button_id = 'product-detail-size-selector-product-detail-product-size-selector-172577525-item-3'
-message = 'Babaanne tişört geldi'
+# PREMIUM SLIM FIT JEAN KOT MAVISI
+url = "https://www.zara.com/tr/tr/premium-slim-fit-jean-p05072300.html?v1=177662111"
+button_id = "product-size-selector-177662111-item-3"
+message = 'KOT MAVISI GELDİ US34 BEDEN'
 check_availability_of_cloth_size(driver, url, button_id, message)
 
+# PREMIUM SLIM FIT JEAN KOT MAVISI 2
+url = "https://www.zara.com/tr/tr/premium-slim-fit-jean-p05072300.html?v1=1776621123"
+button_id = "product-size-selector-223692184-item-3"
+message = 'KOT MAVISI 2 GELDİ US34 BEDEN'
+check_availability_of_cloth_size(driver, url, button_id, message)
+
+# BABAANNE SISME MONT
+url = "https://www.zara.com/tr/tr/kapusonlu-sisme-mont-p00518240.html?v1=177653360"
+button_id = "product-size-selector-177653360-item-3"
+message = 'BABAANNE MONT GELDI'
+check_availability_of_cloth_size(driver, url, button_id, message)
+
+####################################################################################
 driver.quit()
 
 send_telegram_message(f'calisiyor', '-770148157')
